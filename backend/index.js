@@ -11,7 +11,8 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: ["https://deploy-mern-1whq.vercel.app"],
+    methods: ["POST", "GET"],
     credentials: true,
 }));
 app.use(bodyParser.json());
@@ -23,7 +24,7 @@ app.use(session({
 }));
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://r555sid:z3IErgTiwGlzHUPw@cluster0.09upf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+mongoose.connect('mongodb+srv://ajaisharan2020:12345@cluster0.7v96p.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 
 // Define schemas
 const userSchema = new mongoose.Schema({
