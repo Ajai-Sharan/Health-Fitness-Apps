@@ -24,9 +24,9 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const goalsRes = await axios.get('http://localhost:5000/api/goals');
-      const metricsRes = await axios.get('http://localhost:5000/api/health-metrics');
-      const mealsRes = await axios.get('http://localhost:5000/api/meals');
+      const goalsRes = await axios.get('health-fitness-app-backend.vercel.app/api/goals');
+      const metricsRes = await axios.get('health-fitness-app-backend.vercel.app/api/health-metrics');
+      const mealsRes = await axios.get('health-fitness-app-backend.vercel.app/api/meals');
 
       setGoals(goalsRes.data);
       setHealthMetrics(metricsRes.data);
@@ -39,7 +39,7 @@ function App() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/signup', { username, password });
+      const res = await axios.post('health-fitness-app-backend.vercel.app/api/signup', { username, password });
       setUser(res.data.userId);
       setUsername('');
       setPassword('');
@@ -51,7 +51,7 @@ function App() {
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/signin', { username, password });
+      const res = await axios.post('health-fitness-app-backend.vercel.app/api/signin', { username, password });
       setUser(res.data.userId);
       setUsername('');
       setPassword('');
@@ -62,7 +62,7 @@ function App() {
 
   const handleSignout = async () => {
     try {
-      await axios.post('http://localhost:5000/api/signout');
+      await axios.post('health-fitness-app-backend.vercel.app/api/signout');
       setUser(null);
       setGoals([]);
       setHealthMetrics([]);
@@ -75,7 +75,7 @@ function App() {
   const handleGoalSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/goals', newGoal);
+      await axios.post('health-fitness-app-backend.vercel.app/api/goals', newGoal);
       setNewGoal({ title: '', description: '', targetDate: '' });
       fetchData();
     } catch (error) {
@@ -86,7 +86,7 @@ function App() {
   const handleMetricSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/health-metrics', newMetric);
+      await axios.post('health-fitness-app-backend.vercel.app/api/health-metrics', newMetric);
       setNewMetric({ type: '', value: '', date: '' });
       fetchData();
     } catch (error) {
@@ -97,7 +97,7 @@ function App() {
   const handleMealSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/meals', newMeal);
+      await axios.post('health-fitness-app-backend.vercel.app/api/meals', newMeal);
       setNewMeal({ name: '', calories: '', date: '' });
       fetchData();
     } catch (error) {
